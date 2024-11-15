@@ -31,6 +31,6 @@
   @media (width <= 430px) {
     .contactInfo {
       font-size: 0.7rem;
-      line-height: 1;
+      line-height: 1.3;
     }
 }
