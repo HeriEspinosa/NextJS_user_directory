@@ -4,7 +4,7 @@ import styles from '../../../_styles/user.module.css';
 import Image from 'next/image';
 import axios from 'axios';
 
-interface props {
+interface UserDetailsPageProps {
     params: {
         id: string;
     };
@@ -28,7 +28,7 @@ async function getUserById(id: number) {
     }
 }
 
-export default async function UserDetailsPage({ params }: props) {
+export default async function UserDetailsPage({ params }: UserDetailsPageProps) {
 
     const userId = parseInt(params.id, 10);
     const user = await getUserById(userId);
