@@ -6,7 +6,7 @@ import axios from 'axios';
 
 interface props {
     params: {
-        id: string;
+        id: number;
     };
 }
 
@@ -30,8 +30,7 @@ async function getUserById(id: number) {
 
 export default async function UserDetailsPage({ params }: props) {
    
-    const idUser = parseInt(params?.id);
-    const user = await getUserById(idUser);
+    const user = await getUserById(params.id);
     // Redireccionar a la pagina de 404 si no encuentra un usuario con el id proporcionado
     if (!user) {
         notFound();
