@@ -22,7 +22,10 @@ export function Header() {
 
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
-            if (searchRef.current && !searchRef.current.contains(event.target as Node)) {
+            if (
+                searchRef.current &&
+                !searchRef.current.contains(event.target as Node)
+            ) {
                 setFilteredUsers([]);
                 setSearchTerm('');
             }
@@ -41,8 +44,9 @@ export function Header() {
 
         if (value) {
             // Filtramos hasta tres usuarios por nombre o nombre de usuario
-            const matches = users?.filter(
-                (user: { firstName: string; username: string }) =>
+            const matches = users
+                ?.filter(
+                    (user: { firstName: string; username: string }) =>
                         user.firstName.toLowerCase().includes(value) ||
                         user.username.toLowerCase().includes(value)
                 )
@@ -68,23 +72,29 @@ export function Header() {
                         onChange={handleSearchChange}
                         className={styles.searchInput}
                     />
-                    {searchTerm && filteredUsers && filteredUsers.length > 0 && (
-                        <ul className={styles.suggestions} onClick={()=> setSearchTerm('')}>
-                            {filteredUsers?.map((user) => (
-                                <li
-                                    key={user.id}
-                                    className={styles.suggestionItem}
-                                >
-                                    <Link
-                                        href={`/user/${user.id}`}
-                                        className={styles.suggestionLink}
+                    {searchTerm &&
+                        filteredUsers &&
+                        filteredUsers.length > 0 && (
+                            <ul
+                                className={styles.suggestions}
+                                onClick={() => setSearchTerm('')}
+                            >
+                                {filteredUsers?.map((user) => (
+                                    <li
+                                        key={user.id}
+                                        className={styles.suggestionItem}
                                     >
-                                        {user.firstName} {user.lastName} ({user.username})
-                                    </Link>
-                                </li>
-                            ))}
-                        </ul>
-                    )}
+                                        <Link
+                                            href={`/user/${user.id}`}
+                                            className={styles.suggestionLink}
+                                        >
+                                            {user.firstName} {user.lastName} (
+                                            {user.username})
+                                        </Link>
+                                    </li>
+                                ))}
+                            </ul>
+                        )}
                 </div>
                 <div className={styles.nav}>
                     <Link href="/" className={styles.link}>

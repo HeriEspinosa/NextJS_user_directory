@@ -2,7 +2,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useRouter } from 'next/navigation'
+import { useRouter } from 'next/navigation';
 
 import { IUser } from '@/interfaces/IUser';
 import styles from './_styles/users-view.module.css';
@@ -13,17 +13,21 @@ interface Props {
 
 export function UsersView({ users }: Props) {
     // HOOKS
-    const router = useRouter()
-    
+    const router = useRouter();
+
     // METHODS
-    const handleClickGoUser = (id:number) => {
-        router.push(`/user/${id}`)
-    }
+    const handleClickGoUser = (id: number) => {
+        router.push(`/user/${id}`);
+    };
 
     return (
         <main className={styles.main}>
             {users?.map((user) => (
-                <div key={user.id} className={styles.card} onClick={() => handleClickGoUser(user.id)}>
+                <div
+                    key={user.id}
+                    className={styles.card}
+                    onClick={() => handleClickGoUser(user.id)}
+                >
                     <div className={styles.header}>
                         <figure>
                             <Image
