@@ -2,7 +2,7 @@
 'use client';
 
 import Image from 'next/image';
-import {redirect} from 'next/navigation'
+import { useRouter } from 'next/navigation'
 
 import { IUser } from '@/interfaces/IUser';
 import styles from './_styles/users-view.module.css';
@@ -11,12 +11,15 @@ interface Props {
     users: IUser[];
 }
 
-// METHODS
-const handleClickGoUser = (id:number) => {
-    redirect(`/user/:${id}`)
-}
-
 export function UsersView({ users }: Props) {
+    // HOOKS
+    const router = useRouter()
+    
+    // METHODS
+    const handleClickGoUser = (id:number) => {
+        router.push(`/user/${id}`)
+    }
+
     return (
         <main className={styles.main}>
             {users?.map((user) => (

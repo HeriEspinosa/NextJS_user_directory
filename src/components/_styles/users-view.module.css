@@ -68,3 +68,9 @@
     color: #aaa;
   }
   
+
+  @media (width <= 620px) {
+    .main {
+      margin-top: 80px;
+    }
+  }
