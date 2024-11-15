@@ -110,14 +110,19 @@
 }
 
 @media (width <= 620px) {
-  .searchInput {
+  .logo {
+    display: none;
+  }
+  .suggestions {
+    left: 148px;
+  }
+}
+
+@media (width <= 430px) {
+ .searchInput {
     position: absolute;
     top: 60px;
     left: 50%;
     transform: translate(-50%);
-  }
-
-  .suggestions {
-    top: 85px;
   }
 }

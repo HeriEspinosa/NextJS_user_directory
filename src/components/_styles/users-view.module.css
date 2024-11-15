@@ -74,3 +74,9 @@
       margin-top: 80px;
     }
   }
+
+  @media (width <= 600px) {
+    .card {
+      width: 350px;
+    }
+  }
