@@ -11,7 +11,7 @@ export function Header() {
     const [users, setUsers] = useState<IUser[] | undefined>();
     const [searchTerm, setSearchTerm] = useState('');
     const [filteredUsers, setFilteredUsers] = useState<IUser[] | undefined>([]);
-    const searchRef = useRef<any>(null);
+    const searchRef = useRef<HTMLDivElement | null>(null);
 
     // USEEFFECT
     useEffect(() => {
@@ -21,8 +21,8 @@ export function Header() {
     }, []);
 
     useEffect(() => {
-        const handleClickOutside = (event: { target: React.MouseEvent; }) => {
-            if (searchRef.current && !searchRef.current.contains(event.target)) {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (searchRef.current && !searchRef.current.contains(event.target as Node)) {
                 setFilteredUsers([]);
                 setSearchTerm('');
             }
