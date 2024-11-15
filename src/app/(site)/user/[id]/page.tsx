@@ -1,14 +1,8 @@
 import { notFound } from 'next/navigation';
-
-import styles from '../../../_styles/user.module.css';
 import Image from 'next/image';
-import axios from 'axios';
 
-interface Props {
-    params: {
-        id: string;
-    };
-}
+import axios from 'axios';
+import styles from '../../../_styles/user.module.css';
 
 // Traer un usuario por su ID
 async function getUserById(id: number) {
@@ -21,18 +15,23 @@ async function getUserById(id: number) {
             responseType: 'json',
         });
 
-        return result?.data;
+        return result.data;
     } catch (error) {
-        console.error('Error fetching user:', error);
+        console.error('Error fetching user: ', error);
         return null;
     }
 }
 
-export default async function UserDetailsPage({ params }: Props) {
-
-    const userId = params.id ? parseInt(params.id, 10) : 0;
+export default async function UserDetailsPage({
+    params,
+}: {
+    params: Promise<{ id: string }>;
+}) {
+    const id = (await params).id;
+    const userId = parseInt(id, 10);
     const user = await getUserById(userId);
-    // Redireccionar a la pagina de 404 si no encuentra un usuario con el id proporcionado
+
+    // Redireccionar a la página de 404 si no encuentra un usuario con el id proporcionado
     if (!user) {
         notFound();
     }
