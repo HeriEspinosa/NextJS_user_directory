@@ -4,7 +4,7 @@ import styles from '../../../_styles/user.module.css';
 import Image from 'next/image';
 import axios from 'axios';
 
-interface UserDetailsPageProps {
+interface Props {
     params: {
         id: string;
     };
@@ -28,9 +28,9 @@ async function getUserById(id: number) {
     }
 }
 
-export default async function UserDetailsPage({ params }: UserDetailsPageProps) {
+export default async function UserDetailsPage({ params }: Props) {
 
-    const userId = parseInt(params.id, 10);
+    const userId = params.id ? parseInt(params.id, 10) : 0;
     const user = await getUserById(userId);
     // Redireccionar a la pagina de 404 si no encuentra un usuario con el id proporcionado
     if (!user) {
