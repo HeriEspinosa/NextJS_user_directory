@@ -115,6 +115,7 @@
   }
   .suggestions {
     left: 148px;
+    width: 60vw;
   }
 }
 
@@ -124,5 +125,10 @@
     top: 60px;
     left: 50%;
     transform: translate(-50%);
+  }
+
+  .suggestions {
+    top: 163%;
+    left: 50%;
   }
 }
