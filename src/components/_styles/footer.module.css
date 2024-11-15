@@ -1,0 +1,31 @@
+.footer {
+  height: 130px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    background-color: #8a8a8af6;
+    color: #ffffff;
+    text-align: center;
+    border-top: 1px solid #333;
+  }
+  
+  .contactInfo {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+  
+  .contactInfo p {
+    margin: 0.2em 0;
+  }
+  
+  .contactInfo a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .contactInfo a:hover {
+    color: #ff6347;
+  }
+  

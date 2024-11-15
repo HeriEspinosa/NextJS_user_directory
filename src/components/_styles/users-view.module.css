@@ -1,0 +1,70 @@
+
+.main {
+    max-width: 1200px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #f9f9f9;
+  }
+  
+  .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem;
+    border-radius: 12px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px #0000001a;
+    width: 260px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px #00000026;
+  }
+
+  .header {
+    display: flex;
+    gap: 1em;
+    align-items: center;
+  }
+  
+  .avatar {
+    border-radius: 50%;
+    margin-bottom: 1rem;
+  }
+  
+  .info {
+    text-align: center;
+  }
+  
+  .name {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 0.25em;
+    color: #333;
+  }
+  
+  .username {
+    font-size: 0.9rem;
+    color: #888;
+    margin-bottom: 0.5em;
+  }
+  
+  .email {
+    font-size: 0.7rem;
+    color: #555;
+    margin: 1.5em 0.5em 0.5em;
+
+  }
+  
+  .age {
+    font-size: 0.85rem;
+    color: #aaa;
+  }
+  
